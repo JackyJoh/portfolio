@@ -7,11 +7,11 @@ export default function Hero() {
           <span className="text-accent text-sm font-mono uppercase tracking-wider">Welcome</span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
           Jackson Johannessen
         </h1>
         
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-balance max-w-2xl">
+        <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance max-w-2xl">
           Computer Science student at University of Florida building scalable systems, 
           <span className="text-foreground font-semibold"> full-stack applications</span>, and 
           <span className="text-foreground font-semibold"> data-driven solutions</span>.

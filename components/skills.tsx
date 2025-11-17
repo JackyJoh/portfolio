@@ -27,16 +27,16 @@ export default function Skills() {
       <div className="max-w-4xl mx-auto">
         <div className="mb-12 flex items-center gap-3">
           <div className="w-1 h-6 bg-accent"></div>
-          <h2 className="text-3xl font-bold">Skills & Technologies</h2>
+          <h2 className="text-2xl font-bold">Skills & Technologies</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillCategories.map((cat, idx) => (
             <div key={idx} className="border border-border rounded-lg p-6 hover:border-accent transition">
-              <h3 className="text-accent font-mono text-sm font-semibold mb-4 uppercase">{cat.category}</h3>
+              <h3 className="text-accent font-mono text-xs font-semibold mb-4 uppercase">{cat.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill, i) => (
-                  <span key={i} className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-full font-mono">
+                  <span key={i} className="px-2.5 py-1 bg-secondary text-secondary-foreground text-xs rounded-full font-mono">
                     {skill}
                   </span>
                 ))}
