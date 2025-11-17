@@ -10,7 +10,7 @@ const projects = [
       'Implemented min-heap and merge-sort for optimal song sorting and ranking',
       'Tech: C++, JavaScript, HTML/CSS, Git'
     ],
-    impact: '90%'
+    impact: ''
   },
   {
     title: 'UF Swamp Launch Rocket Payload',
@@ -23,7 +23,7 @@ const projects = [
       'Enabled post-flight analysis through CSV output and performance metric visualization',
       'Collaborating with interdisciplinary team to meet NASA competition requirements'
     ],
-    impact: 'NASA'
+    impact: ''
   },
   {
     title: 'Asteroid Hazard Classification Model',
@@ -36,13 +36,13 @@ const projects = [
       'Performed feature analysis on relative velocity, distance, and other key parameters',
       'Provided actionable insights for space science research'
     ],
-    impact: '70%'
+    impact: ''
   }
 ]
 
 export default function Projects() {
   return (
-    <section className="py-20 px-4 md:px-8">
+    <section className="py-8 px-4 md:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12 flex items-center gap-3">
           <div className="w-1 h-6 bg-accent"></div>

@@ -18,9 +18,6 @@ export default function Home() {
       <Navigation />
       <main className="max-w-6xl mx-auto">
         <Hero />
-        <div id="about">
-          <About />
-        </div>
         <div id="projects">
           <Projects />
         </div>
@@ -29,6 +26,9 @@ export default function Home() {
         </div>
         <div id="skills">
           <Skills />
+        </div>
+        <div id="about">
+          <About />
         </div>
       </main>
       <Contact />

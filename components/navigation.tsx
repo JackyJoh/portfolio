@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('')
-  const sections = ['about', 'projects', 'experience', 'skills']
+  const sections = ['projects', 'experience', 'skills', 'about']
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +36,7 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm">
       <nav className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
-        <a href="#about" onClick={(e) => { e.preventDefault(); handleNavClick('about') }} className="font-bold text-lg">
+        <a href="#projects" onClick={(e) => { e.preventDefault(); handleNavClick('projects') }} className="font-bold text-lg">
           J.J
         </a>
         

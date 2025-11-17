@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20">
+    <section className="min-h-screen flex items-center justify-center px-4 md:px-8 py-20 pb-8">
       <div className="w-full max-w-4xl">
         <div className="mb-6 flex items-center gap-2">
           <div className="w-1 h-8 bg-accent"></div>
@@ -31,6 +31,12 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:bg-muted transition font-mono text-sm"
           >
             View GitHub
+          </a>
+          <a 
+            href="/demos"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:bg-muted transition font-mono text-sm"
+          >
+            Project Demos
           </a>
         </div>
 
