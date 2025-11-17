@@ -9,7 +9,7 @@ export default function About() {
 
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
           <p>
-            I'm a <span className="text-foreground font-semibold">Computer Science student at University of Florida</span> with a passion for building efficient, scalable systems and creating polished user experiences. My interests span full-stack web development, embedded systems, machine learning, and data optimization.
+            I'm a <span className="text-foreground font-semibold">Computer Science TEST INSERTstudent at University of Florida</span> with a passion for building efficient, scalable systems and creating polished user experiences. My interests span full-stack web development, embedded systems, machine learning, and data optimization.
           </p>
 
           <p>
