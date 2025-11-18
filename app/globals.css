@@ -124,4 +124,17 @@
     /* added smooth scroll behavior for anchor navigation */
     scroll-behavior: smooth;
   }
+  /* Hide vertical scrollbar but allow scrolling */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  html::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 }

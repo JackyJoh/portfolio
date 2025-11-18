@@ -24,20 +24,19 @@ export default function Hero() {
           >
             Get in Touch →
           </a>
-          <a 
-            href="https://github.com/JackyJoh"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => {
+              const el = document.getElementById('projects');
+              if (el) {
+                const y = el.getBoundingClientRect().top + window.pageYOffset - 100;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+              }
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:bg-muted transition font-mono text-sm"
           >
-            View GitHub
-          </a>
-          <a 
-            href="/demos"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:bg-muted transition font-mono text-sm"
-          >
-            Project Demos
-          </a>
+            View My Projects
+          </button>
         </div>
 
         <div className="mt-16 pt-16 border-t border-border flex gap-8 md:gap-12">

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('')
-  const sections = ['projects', 'experience', 'skills', 'about']
+  const sections = ['projects', 'skills', 'about']
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +29,8 @@ export default function Navigation() {
   const handleNavClick = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const y = element.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }
 

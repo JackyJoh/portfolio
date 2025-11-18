@@ -16,12 +16,6 @@ export default function Contact() {
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-accent font-mono text-sm">Phone</span>
-                <a href="tel:239-776-6005" className="text-foreground hover:text-accent transition">
-                  239-776-6005
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
                 <span className="text-accent font-mono text-sm">Location</span>
                 <p className="text-foreground">Gainesville, FL</p>
               </div>

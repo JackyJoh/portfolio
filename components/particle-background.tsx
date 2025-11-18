@@ -45,14 +45,34 @@ export default function ParticleBackground() {
       }
     }
 
+    const getAccentRGB = () => {
+      // Get computed accent color from CSS variable and convert to RGB
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+      // Try to parse oklch or fallback to a default blue
+      // This is a simple fallback for oklch(0.45 0.18 240) → blue
+      // You can use a color library for more accurate conversion if needed
+      if (accent.startsWith('oklch')) {
+        // Use a fixed blue for now (as browsers don't support oklch to rgb conversion in JS)
+        return [59, 130, 246];
+      }
+      // Try to parse rgb/hex if present
+      const rgbMatch = accent.match(/rgb\\((\\d+), (\\d+), (\\d+)\\)/);
+      if (rgbMatch) {
+        return [parseInt(rgbMatch[1]), parseInt(rgbMatch[2]), parseInt(rgbMatch[3])];
+      }
+      return [59, 130, 246]; // fallback blue
+    }
+
     const drawParticle = (particle: Particle) => {
       ctx.beginPath()
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(232, 121, 249, ${particle.opacity})`
+      const [r, g, b] = getAccentRGB();
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${particle.opacity})`
       ctx.fill()
     }
 
     const connectParticles = () => {
+      const [r, g, b] = getAccentRGB();
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
@@ -62,7 +82,7 @@ export default function ParticleBackground() {
           if (distance < 150) {
             const opacity = (1 - distance / 150) * 0.35
             ctx.beginPath()
-            ctx.strokeStyle = `rgba(232, 121, 249, ${opacity})`
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`
             ctx.lineWidth = 1.2
             ctx.moveTo(particles[i].x, particles[i].y)
             ctx.lineTo(particles[j].x, particles[j].y)
