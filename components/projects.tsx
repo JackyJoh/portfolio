@@ -36,19 +36,19 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-8 px-[180px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <section id="projects" className="py-8 px-[5vw] md:px-[8vw] xl:px-[10vw] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
       <div className="w-full mx-auto">
         <div className="mb-12 flex items-center gap-3">
           <div className="w-1 h-6 bg-accent"></div>
           <h2 className="text-3xl font-bold">Projects</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full [grid-template-columns:repeat(3,minmax(0,1fr))]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full">
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="flex flex-col border border-border rounded-2xl bg-card/70 shadow-lg p-8 min-h-[280px] w-full max-w-xl mx-auto hover:border-accent transition"
-            >   
+              className="flex flex-col border border-border rounded-2xl bg-card/70 shadow-lg p-6 min-h-[200px] w-full max-w-xl mx-auto hover:border-accent transition"
+            >
               <div className="flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{project.title}</h3>
