@@ -13,12 +13,13 @@ const projects = [
   },
   {
     slug: './',
-    title: 'UF Swamp Launch Rocket Payload',
+    title: 'NASA USLI Rocket Payload',
     subtitle: 'Embedded Systems & C++',
     date: 'Sep 2024 - Present',
-    description: 'Developing real-time data logging and transmission system for a NASA Student Launch Initiative competition rocket.',
+    description: 'Developed real-time data logging, bit-packing transmission system, and land-detection software for a NASA student launch competition rocket.',
     highlights: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      'framework 1 i used',
+      'second framework i used'
     ]
   },
   {
@@ -35,19 +36,19 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-8 px-4 md:px-8">
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="py-8 px-[180px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+      <div className="w-full mx-auto">
         <div className="mb-12 flex items-center gap-3">
           <div className="w-1 h-6 bg-accent"></div>
           <h2 className="text-3xl font-bold">Projects</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full [grid-template-columns:repeat(3,minmax(0,1fr))]">
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="flex flex-col border border-border rounded-xl bg-card shadow-lg p-4 min-h-[320px] aspect-[4/5] hover:border-accent transition group"
-            >
+              className="flex flex-col border border-border rounded-2xl bg-card/70 shadow-lg p-8 min-h-[280px] w-full max-w-xl mx-auto hover:border-accent transition"
+            >   
               <div className="flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{project.title}</h3>
@@ -66,9 +67,10 @@ export default function Projects() {
                 <div className="mt-2">
                   <Link
                     href={project.slug === 'music-recommendation-engine' ? '/demos/music-recommendation-engine' : `/demos/${project.slug}`}
-                    className="inline-block px-4 py-1.5 rounded-lg bg-accent text-accent-foreground font-mono text-xs font-semibold shadow hover:opacity-90 transition"
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-accent text-accent font-mono text-xs font-semibold hover:bg-accent/10 hover:text-accent transition group"
                   >
                     View Details
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                   </Link>
                 </div>
               </div>

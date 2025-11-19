@@ -21,6 +21,7 @@ export default function Home() {
         <div id="projects">
           <Projects />
         </div>
+        <div className="mt-32" />
         <div id="skills">
           <Skills />
         </div>
