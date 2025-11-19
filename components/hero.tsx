@@ -12,7 +12,7 @@ export default function Hero() {
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance max-w-2xl">
-          Computer Science student at University of Florida building scalable systems, 
+          Computer Science student at University of Florida building <span className="text-foreground font-semibold">scalable systems</span>, 
           <span className="text-foreground font-semibold"> full-stack applications</span>, and 
           <span className="text-foreground font-semibold"> data-driven solutions</span>.
         </p>
