@@ -35,7 +35,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-8 px-[5vw] md:px-[8vw] xl:px-[10vw] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <section className="scroll-mt-32 py-8 px-[5vw] md:px-[8vw] xl:px-[10vw] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
       <div className="w-full mx-auto">
         <div className="mb-12 flex items-center gap-3">
           <div className="w-1 h-6 bg-accent"></div>
@@ -46,7 +46,7 @@ export default function Projects() {
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="flex flex-col border border-border rounded-2xl bg-card/70 shadow-lg p-6 min-h-[400px] w-full max-w-xl mx-auto hover:border-accent transition"
+              className="flex flex-col border border-border rounded-2xl bg-card/05 backdrop-blur-sm shadow-lg p-6 min-h-[400px] w-full max-w-xl mx-auto hover:border-accent transition"
             >
               <div className="flex flex-col h-full">
                 <div className="flex-1">
