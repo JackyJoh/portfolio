@@ -6,9 +6,9 @@ const projects = [
     title: 'Music Recommendation Engine',
     subtitle: 'Full-Stack Development',
     date: 'March 2025',
-    description: 'Built a full-stack music recommendation system that identifies similar songs from a 114,000-song dataset using efficient data structures and algorithms.',
-    highlights: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    description: 'Web app that takes a song name and returns the 7 most similar songs from a 114,000-song dataset, using a trie for search and a similarity algorithm for ranking.',
+    skills: [
+      'TypeScript', 'Next.js', 'Python', 'Pandas', 'Scikit-learn', 'TailwindCSS'
     ]
   },
   {
@@ -16,20 +16,19 @@ const projects = [
     title: 'NASA USLI Rocket Payload',
     subtitle: 'Embedded Systems & C++',
     date: 'Sep 2024 - Present',
-    description: 'Developed real-time data logging, bit-packing transmission system, and land-detection software for a NASA student launch competition rocket.',
-    highlights: [
-      'framework 1 i used',
-      'second framework i used'
+    description: 'Real-time data logging program that wrote sensor (IMU) data to CSV \n Bit-packing system to format multiple sensor inputs into a 52-bit package for Raspberry Pi \n Detection software to identify launch/landing events and trigger payload deployment.',
+    skills: [
+      'C++', 'Embedded', 'RTOS', 'Telemetry'
     ]
   },
   {
     slug: './',
-    title: 'Asteroid Hazard Classification Model',
-    subtitle: 'Machine Learning & Data Science',
-    date: 'July 2024',
-    description: 'Developed a machine learning model to classify asteroids as hazardous or non-hazardous based on orbital and physical attributes.',
-    highlights: [
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    title: 'Corporate Dashboards',
+    subtitle: 'Full-Stack Development',
+    date: 'August 2025',
+    description: 'Web-based dashboards for internal use at a health-care company, featuring real-time data visualization, streamlined auditing workflows, and secure user login with JWT tokens and CORS.',
+    skills: [
+      'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'MongoDB', 'Supabase'
     ]
   }
 ]
@@ -47,27 +46,39 @@ export default function Projects() {
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="flex flex-col border border-border rounded-2xl bg-card/70 shadow-lg p-6 min-h-[200px] w-full max-w-xl mx-auto hover:border-accent transition"
+              className="flex flex-col border border-border rounded-2xl bg-card/70 shadow-lg p-6 min-h-[400px] w-full max-w-xl mx-auto hover:border-accent transition"
             >
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
+              <div className="flex flex-col h-full">
+                <div className="flex-1">
                   <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{project.title}</h3>
                   <p className="text-accent font-mono text-xs mb-2">{project.subtitle}</p>
                   <div className="text-muted-foreground text-xs mb-3">{project.date}</div>
-                  <p className="text-muted-foreground mb-3">{project.description}</p>
-                  <ul className="space-y-1 mb-3">
-                    {project.highlights.map((highlight, i) => (
-                      <li key={i} className="flex gap-2 text-xs">
-                        <span className="text-accent font-bold mt-1">→</span>
-                        <span className="text-muted-foreground">{highlight}</span>
-                      </li>
+                  <p className="text-muted-foreground mb-3">
+                    {project.description.split('\n').map((line, idx) => (
+                      <span
+                        key={idx}
+                        className={idx > 0 ? 'block mt-2' : 'block'}
+                      >
+                        {line}
+                      </span>
                     ))}
-                  </ul>
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="inline-block rounded-xl bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground border border-border shadow-sm"
+                        style={{ borderRadius: '1.25rem' }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-2">
+                <div className="mt-auto pt-2">
                   <Link
                     href={project.slug === 'music-recommendation-engine' ? '/demos/music-recommendation-engine' : `/demos/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-accent text-accent font-mono text-xs font-semibold hover:bg-accent/10 hover:text-accent transition group"
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-accent text-white font-mono text-sm font-bold shadow-md hover:bg-accent/90 hover:scale-105 transition-all group border-2 border-accent"
                   >
                     View Details
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
