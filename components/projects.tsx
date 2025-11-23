@@ -20,16 +20,6 @@ const projects = [
     skills: [
       'C++', 'Embedded', 'RTOS', 'Telemetry'
     ]
-  },
-  {
-    slug: './',
-    title: 'Corporate Dashboards',
-    subtitle: 'Full-Stack Development',
-    date: 'August 2025',
-    description: 'Web-based dashboards for internal use at a health-care company, featuring real-time data visualization, streamlined auditing workflows, and secure user login with JWT tokens and CORS.',
-    skills: [
-      'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'MongoDB', 'Supabase'
-    ]
   }
 ]
 

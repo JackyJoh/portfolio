@@ -6,6 +6,7 @@ import Navigation from '@/components/navigation'
 
 import About from '@/components/about'
 import Projects from '@/components/projects'
+import Experience from '@/components/experience'
 import Skills from '@/components/skills'
 import Contact from '@/components/contact'
 import ParticleBackground from '@/components/particle-background'
@@ -28,7 +29,10 @@ export default function Home() {
         <Hero />
           <div id="projects" className="mb-16 scroll-mt-[100px]">
             <Projects />
-        </div>
+          </div>
+          <div id="experience" className="mb-16 scroll-mt-[100px]">
+            <Experience />
+          </div>
         <div className="mt-32" />
         <div id="skills" className="mb-16 scroll-mt-[100px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 px-[5vw] md:px-[8vw] xl:px-[10vw]">
           <Skills />

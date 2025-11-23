@@ -1,72 +1,82 @@
 const experiences = [
   {
-    title: 'Data Analyst',
+    title: 'Software Engineer Intern',
     company: 'Naples Comprehensive Health',
     location: 'Naples, FL',
     date: 'June 2025 - Present',
-    highlights: [
-      'Reduced data entry inefficiencies by 40% by engineering a data integration system using Python and pandas to normalize disparate insurance spreadsheets and eliminate duplicate patient records',
-      'Developed a full-stack financial dashboard with React frontend and Python backend for senior leadership, providing real-time metrics on care gap closure and enabling data-driven financial decisions',
-      'Automated document management by building a Python script that sorts patient PDFs into appropriate insurance folders, improving operational efficiency and saving an estimated 15 hours per week',
-      'Contributed to financial optimization by creating an aggregation script that categorizes care gaps by insurance provider'
-    ]
+    description: 'Created web-based dashboards for internal use at a health-care company, featuring real-time data visualization, streamlined auditing workflows, and secure user login with JWT tokens and CORS.',
+    skills: ['Python', 'Pandas', 'React', 'Full-Stack', 'Data Integration']
   },
   {
     title: 'Software Developer',
     company: 'UF Swamp Launch Rocket Design Team (USLI)',
     location: 'Gainesville, FL',
     date: 'Sep 2024 - Present',
-    highlights: [
-      'Developed data logging system for rocket payload using C++; implemented real-time data collection and CSV output',
-      'Optimized data transmission by designing and implementing bit-packing algorithms that compressed sensor inputs into a 60-bit format',
-      'Engineered modular code architecture that allowed integration of additional sensors; improved system scalability',
-      'Collaborated with interdisciplinary team to meet technical requirements and deadlines for NASA competition'
-    ]
+    description: 'Real-time data logging program that wrote sensor (IMU) data to CSV \n Bit-packing system to format multiple sensor inputs into a 52-bit package for Raspberry Pi \n Detection software to identify launch/landing events and trigger payload deployment.',
+    skills: ['C++', 'Embedded', 'Bit-Packing', 'CSV', 'Modular Design']
   },
   {
     title: 'Outside Services',
     company: 'Bonita Bay Club',
     location: 'Naples, FL',
     date: 'Oct 2021 - Present',
-    highlights: [
-      'Managed member services with focus on excellent customer service and attention to detail',
-      'Handled golf equipment and laundry tasks while maintaining club standards',
-      'Assisted in closing operations and facility maintenance'
-    ]
+    description:
+      'Managed member services with focus on excellent customer service and attention to detail. Handled golf equipment and laundry tasks while maintaining club standards. Assisted in closing operations and facility maintenance.',
+    skills: ['Customer Service', 'Operations', 'Teamwork']
   }
 ]
 
 export default function Experience() {
   return (
-    <section className="py-20 px-4 md:px-8">
-      <div className="max-w-4xl mx-auto">
+    <section className="scroll-mt-32 py-8 px-[5vw] md:px-[8vw] xl:px-[10vw] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+      <div className="w-full mx-auto">
         <div className="mb-12 flex items-center gap-3">
           <div className="w-1 h-6 bg-accent"></div>
           <h2 className="text-3xl font-bold">Experience</h2>
         </div>
-
-        <div className="space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 w-full">
           {experiences.map((exp, idx) => (
-            <div key={idx} className="border-l-2 border-accent pl-6">
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <div>
-                  <h3 className="text-xl font-bold">{exp.title}</h3>
-                  <p className="text-accent font-mono text-sm">{exp.company}</p>
+            <div
+              key={idx}
+              className="flex flex-col border border-border rounded-2xl bg-card/05 backdrop-blur-sm shadow-lg p-6 min-h-[400px] w-full max-w-xl mx-auto hover:border-accent transition"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{exp.title}</h3>
+                  <p className="text-accent font-mono text-xs mb-2">{exp.company}</p>
+                  <div className="text-muted-foreground text-xs mb-3">{exp.location} &middot; {exp.date}</div>
+                  <p className="text-muted-foreground mb-3">
+                    {exp.description.split('\n').map((line, idx) => (
+                      <span
+                        key={idx}
+                        className={idx > 0 ? 'block mt-2' : 'block'}
+                      >
+                        {line}
+                      </span>
+                    ))}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {exp.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="inline-block rounded-xl bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground border border-border shadow-sm"
+                        style={{ borderRadius: '1.25rem' }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="text-right text-sm">
-                  <p className="text-muted-foreground">{exp.location}</p>
-                  <p className="text-muted-foreground">{exp.date}</p>
+                <div className="mt-auto pt-2">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-accent text-white font-mono text-sm font-bold shadow-md hover:bg-accent/90 hover:scale-105 transition-all group border-2 border-accent"
+                  >
+                    View Details
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                  </button>
                 </div>
               </div>
-
-              <ul className="mt-4 space-y-2">
-                {exp.highlights.map((highlight, i) => (
-                  <li key={i} className="flex gap-3 text-sm">
-                    <span className="text-accent font-bold mt-1">→</span>
-                    <span className="text-muted-foreground">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
