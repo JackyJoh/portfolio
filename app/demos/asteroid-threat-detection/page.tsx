@@ -141,16 +141,6 @@ export default function AsteroidThreatDetectionDemo() {
           </section>
 
           {/* Model & Results Section */}
-                    {/* Key Takeaways Section */}
-                    <section className="mb-12">
-                      <h2 className="text-2xl font-semibold mb-4">Key Takeaways</h2>
-                      <ul className="text-muted-foreground text-md list-disc pl-4 mb-4">
-                        <li>Balanced data and feature selection are critical for accurate hazard prediction.</li>
-                        <li>Velocity and miss distance are strong indicators of hazard status.</li>
-                        <li>Model accuracy reached 70%, showing promise for future improvements.</li>
-                        <li>Visualizations help scientists and decision-makers quickly assess risk.</li>
-                      </ul>
-                    </section>
           <section className="mb-12">
             <h2 className="text-2xl font-semibold mb-4">Model & Results</h2>
             <div className="bg-card/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-border">
