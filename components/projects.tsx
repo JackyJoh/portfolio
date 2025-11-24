@@ -81,13 +81,22 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="mt-auto pt-2 flex gap-2 justify-between">
-                  <Link
-                    href={project.slug === 'music-recommendation-engine' ? '/demos/music-recommendation-engine' : `/demos/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-br from-accent to-accent/80 text-white font-mono text-sm font-semibold shadow hover:from-accent/90 hover:to-accent/70 transition-all border border-accent"
-                  >
-                    View Details
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                  </Link>
+                  {project.slug === 'fut-predictor' ? (
+                    <span
+                      className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-br from-accent to-accent/80 text-white font-mono text-sm font-semibold shadow border border-accent opacity-60 select-none"
+                    >
+                      View Details
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </span>
+                  ) : (
+                    <Link
+                      href={project.slug === 'music-recommendation-engine' ? '/demos/music-recommendation-engine' : `/demos/${project.slug}`}
+                      className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-br from-accent to-accent/80 text-white font-mono text-sm font-semibold shadow hover:from-accent/90 hover:to-accent/70 transition-all border border-accent"
+                    >
+                      View Details
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </Link>
+                  )}
                   {project.repo ? (
                     <a
                       href={project.repo}
