@@ -8,18 +8,33 @@ const projects = [
     date: 'March 2025',
     description: 'Web app that takes a song name and returns the 7 most similar songs from a 114,000-song dataset, using a trie for search and a similarity algorithm for ranking.',
     skills: [
-      'TypeScript', 'Next.js', 'Python', 'Pandas', 'Scikit-learn', 'TailwindCSS'
-    ]
+      'Javascript', 'C++', 'HTML/CSS', 'Full Stack', 'Algorithms'
+    ],
+    repo: 'https://github.com/JackyJoh/Proj3Spotify'
   },
   {
-    slug: './',
-    title: 'NASA USLI Rocket Payload',
-    subtitle: 'Embedded Systems & C++',
-    date: 'Sep 2024 - Present',
-    description: 'Real-time data logging program that wrote sensor (IMU) data to CSV \n Bit-packing system to format multiple sensor inputs into a 52-bit package for Raspberry Pi \n Detection software to identify launch/landing events and trigger payload deployment.',
+    slug: 'asteroid-threat-detection',
+    title: 'Asteroid Threat Detection',
+    subtitle: 'Machine Learning, Data Science',
+    date: 'June 2021 | Stevens Institute of Technology',
+    description: 'A machine learning model that classifies near-Earth objects (NEOs) as hazardous or non-hazardous based on features like size, orbit, and velocity. Results are visualized in graphs to highlight which attributes most influence hazard status.',
     skills: [
-      'C++', 'Embedded', 'RTOS', 'Telemetry'
-    ]
+      'Scikit-learn', 'Python', 'Matplotlib', 'OCaml'
+    ],
+    organization: 'Stevens Institute of Technology',
+    repo: null // disables github link
+  },
+  {
+    slug: 'fut-predictor',
+    title: 'Football Performance Predictor',
+    subtitle: 'Machine Learning, Data Organization',
+    date: 'TBA',
+    description: 'COMING SOON: A machine learning model that predicts football player performance using historical data, player statistics, and game conditions to provide insights for team management and strategy.',
+    skills: [
+      'TBA'
+    ],
+    organization: 'Stevens Institute of Technology',
+    repo: null // disables github link
   }
 ]
 
@@ -65,14 +80,26 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-                <div className="mt-auto pt-2">
+                <div className="mt-auto pt-2 flex gap-2 justify-between">
                   <Link
                     href={project.slug === 'music-recommendation-engine' ? '/demos/music-recommendation-engine' : `/demos/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-accent text-white font-mono text-sm font-bold shadow-md hover:bg-accent/90 hover:scale-105 transition-all group border-2 border-accent"
+                    className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-br from-accent to-accent/80 text-white font-mono text-sm font-semibold shadow hover:from-accent/90 hover:to-accent/70 transition-all border border-accent"
                   >
                     View Details
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                   </Link>
+                  {project.repo ? (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-accent transition"
+                    >
+                      <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.48C21.138 20.2 24 16.447 24 12.021 24 6.484 19.523 2 12 2z"/></svg>
+                    </a>
+                  ) : (
+                    <svg className="w-10 h-10 text-gray-400 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.577.688.48C21.138 20.2 24 16.447 24 12.021 24 6.484 19.523 2 12 2z"/></svg>
+                  )}
                 </div>
               </div>
             </div>

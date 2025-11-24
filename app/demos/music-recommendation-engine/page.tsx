@@ -8,9 +8,9 @@ export default function MusicRecommendationEnginePage() {
     <div className="min-h-screen bg-background text-foreground relative">
       <ParticleBackground />
       <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm min-h-[64px]">
-        <nav className="max-w-6xl mx-auto px-4 md:px-8 py-4 min-h-[64px] flex items-center relative">
-          {/* Back button fixed at the very left of the screen, above header, vertically centered in header */}
-          <div className="fixed left-[3vw] top-0 z-[100] h-[64px] flex items-center" style={{ pointerEvents: 'auto' }}>
+        <nav className="max-w-6xl mx-auto px-4 md:px-8 py-4 min-h-[64px] flex flex-col sm:flex-row items-center relative">
+          {/* Responsive back button: static on mobile, fixed on larger screens */}
+          <div className="sm:fixed sm:left-[3vw] sm:top-0 sm:z-[100] h-[48px] sm:h-[64px] flex items-center w-full sm:w-auto mb-2 sm:mb-0" style={{ pointerEvents: 'auto' }}>
             <a
               href="/#projects"
               aria-label="Back to Projects"
@@ -53,59 +53,81 @@ export default function MusicRecommendationEnginePage() {
           {/* Project Overview / Specs */}
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-4">Project Overview / Specs</h2>
+            <p className="text-muted-foreground mb-3">
+              <strong>Proj3Spotify</strong> is a full-stack music recommendation engine that finds the 7 most similar songs to a user-provided track, searching a dataset of over 114,000 Spotify songs. It features fast search and ranking using custom data structures and algorithms for both performance and accuracy.
+            </p>
             <p className="text-muted-foreground mb-6">
-              This web app recommends the 7 most similar songs to a user-provided song name, searching a dataset of over 114,000 tracks. It features fast search and ranking using custom data structures and algorithms for both performance and accuracy.
+              There are two main ways to search for recommendations in the app: by entering a song name or by selecting a random song. If you leave the input blank and click <strong>Update Song</strong>, the app defaults to "The Real Slim Shady". When you use <strong>Update Song</strong>, the app leverages a trie tree for fast prefix search to find the closest matching song title, then ranks the songs using a min-heap. If you use <strong>Random Song</strong>, the app picks a random track from the dataset and ranks the results using an ordered map. Both methods use the same similarity algorithm, comparing audio features like tempo, danceability, energy, and genre to find the best matches.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border">
                 <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Frontend</h3>
                 <ul className="text-muted-foreground text-sm list-disc pl-4">
                   <li>HTML, CSS, JavaScript</li>
-                  <li>Responsive UI</li>
+                  <li>Responsive UI with song cards and details</li>
                 </ul>
               </div>
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border">
                 <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Backend</h3>
                 <ul className="text-muted-foreground text-sm list-disc pl-4">
-                  <li>C++ (rapidcsv, httplib)</li>
-                  <li>Custom API for song search and recommendation</li>
+                  <li>C++ (rapidcsv for CSV parsing, httplib for HTTP server)</li>
+                  <li>API for song search and recommendation</li>
+                  <li>Returns JSON with top 7 similar songs and their attributes</li>
                 </ul>
               </div>
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border">
-                <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Algorithms</h3>
+                <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Algorithms & Data Structures</h3>
                 <ul className="text-muted-foreground text-sm list-disc pl-4">
-                  <li>Trie tree for fast prefix search</li>
-                  <li>Similarity scoring and ranking with max-heap</li>
-                  <li>Bit-packing for efficient data transfer</li>
+                  <li>Trie tree for fast prefix search on song names</li>
+                  <li>Max-heap and merge sort for efficient sorting and ranking</li>
                 </ul>
               </div>
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border">
-                <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Frameworks</h3>
+                <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Dataset & Features</h3>
                 <ul className="text-muted-foreground text-sm list-disc pl-4">
-                  <li>rapidcsv</li>
-                  <li>httplib</li>
-                  <li>Vanilla JS/CSS for frontend</li>
+                  <li>114,000+ Spotify tracks (CSV)</li>
+                  <li>API returns detailed song info for recommendations</li>
                 </ul>
               </div>
             </div>
           </section>
 
           {/* Preview Section */}
-          <section className="mb-12">
+          <section className="mb-10">
             <h2 className="text-2xl font-semibold mb-4">Preview</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-              {/* Example screenshot and explanation */}
+            <div className="flex flex-col gap-6">
+              {/* Trie Tree Search Autocomplete */}
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border flex flex-col items-center">
-                <div className="w-full h-40 sm:h-48 bg-muted rounded mb-4 flex items-center justify-center text-muted-foreground">
-                  Screenshot 1 (placeholder)
-                </div>
-                <p className="text-muted-foreground text-sm">Enter a song name in the search bar. The app uses a trie to quickly find matches and displays the top 7 most similar songs.</p>
+                     <img
+                       src="/previews/music_trie.png"
+                       alt="Trie tree search screenshot"
+                       className="object-cover rounded mb-6 shadow-lg w-full"
+                       style={{
+                         maxWidth: '900px',
+                         height: 'auto',
+                         display: 'block',
+                         margin: '0 auto',
+                         width: '100%',
+                       }}
+                     />
+                   <p className="text-muted-foreground text-sm mt-2">Trie tree search: Input an incomplete song name and the closest match will be used by the app.</p>
+                <p className="text-muted-foreground text-sm mt-1">E.g., typing "Bohemian R" will match "Bohemian Rhapsody".</p>
               </div>
+              {/* Song Card Details Popup */}
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border flex flex-col items-center">
-                <div className="w-full h-48 bg-muted rounded mb-4 flex items-center justify-center text-muted-foreground">
-                  Screenshot 2 (placeholder)
-                </div>
-                <p className="text-muted-foreground text-sm">The backend ranks results using a custom similarity algorithm and returns them instantly, even for large datasets.</p>
+                     <img
+                       src="/previews/music_card.png"
+                       alt="Song card details screenshot"
+                       className="object-cover rounded mb-6 shadow-lg w-full"
+                       style={{
+                         maxWidth: '900px',
+                         height: 'auto',
+                         display: 'block',
+                         margin: '0 auto',
+                         width: '100%',
+                       }}
+                     />
+                   <p className="text-muted-foreground text-sm mt-2">Song details: Click a song card to view a popup with full details—title, artist, album, score, tempo, genre, danceability, energy, duration.</p>
               </div>
             </div>
           </section>
@@ -113,24 +135,38 @@ export default function MusicRecommendationEnginePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-semibold mb-4">How to Run / Live Demo</h2>
             <div className="bg-card/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-border">
-              <p className="text-muted-foreground mb-4">
-                You can try the project live or run it locally by following these steps:
+              <p className="text-muted-foreground mb-6">
+                There are two main ways to search for recommendations in the app: by entering a song name or by selecting a random song. If you leave the input blank and click <strong>Update Song</strong>, the app defaults to "The Real Slim Shady". When you use <strong>Update Song</strong>, the app leverages a trie tree for fast prefix search to find the closest matching song title, then ranks the top 7 similar songs using a min-heap. If you use <strong>Random Song</strong>, the app picks a random track from the dataset and ranks the results using an ordered map. Both methods use the same basic similarity algorithm, comparing audio features like tempo, danceability, energy, and genre to find the best matches.
               </p>
-              <ol className="list-decimal pl-6 text-muted-foreground mb-4 space-y-2 text-sm">
-                <li className="break-words">
-                  Visit the <a href="https://github.com/JackyJoh/Proj3Spotify" target="_blank" rel="noopener noreferrer" className="text-accent underline">GitHub repository</a> and clone the project.
-                </li>
-                <li>
-                  Follow the setup instructions in the README to install dependencies and build the backend (C++).
-                </li>
-                <li>
-                  Start the backend server and open the frontend in your browser.
-                </li>
-                <li>
-                  Optionally, watch the <a href="https://www.youtube.com/watch?v=yWauT5_8_Sc&ab_channel=JackyJoh" target="_blank" rel="noopener noreferrer" className="text-accent underline">video demo</a> for a walkthrough.
-                </li>
-              </ol>
-              <div className="flex flex-col md:flex-row gap-4 mb-4">
+              <p className="text-muted-foreground mb-2 font-semibold">After forking the repository and creating your project folder:</p>
+              <div className="mb-6">
+                <h3 className="font-semibold text-accent mb-2 text-sm uppercase">CLion Users</h3>
+                <ol className="list-decimal pl-6 text-muted-foreground mb-4 space-y-2 text-sm">
+                  <li>Install CLion and MinGW-w64 (for g++), and add MinGW-w64's bin folder to your system PATH.</li>
+                  <li>Open the project in CLion.</li>
+                  <li>Build the project.</li>
+                  <li>Edit the run configuration: In the "before launch" section, remove the build phase and add "Launch Web Browser" with the link set to <span className="font-mono text-xs">http://localhost:63342/Proj3Spotify/frontEnd/index.html</span>.</li>
+                  <li>After building, press the run button. This will launch both the website and the backend server at the same time.</li>
+                  <li><strong>MacOS users:</strong> Remove the last line in <span className="font-mono text-xs">CMakeLists.txt</span> where it says "Add windows socket libraries".</li>
+                </ol>
+              </div>
+              <div className="mb-6">
+                <h3 className="font-semibold text-accent mb-2 text-sm uppercase">VS Code Users (Windows)</h3>
+                <ol className="list-decimal pl-6 text-muted-foreground mb-4 space-y-2 text-sm">
+                  <li>Install MinGW-w64 (for g++), and add its bin folder to your system PATH.</li>
+                  <li>Install VS Code and the "Live Server" extension.</li>
+                  <li>Open a Command Prompt in your project folder.</li>
+                  <li>Compile the backend server:
+                    <pre className="bg-muted p-2 rounded text-xs mt-2 mb-2">g++ -o backend_server backend_server.cpp</pre>
+                    Run the backend server:
+                    <pre className="bg-muted p-2 rounded text-xs mt-2 mb-2">backend_server.exe</pre>
+                  </li>
+                  <li>Open <span className="font-mono text-xs">index.html</span> in VS Code.</li>
+                  <li>Right-click <span className="font-mono text-xs">index.html</span> and select "Open with Live Server".</li>
+                  <li>Your browser will open to <span className="font-mono text-xs">http://127.0.0.1:5500/frontEnd/index.html</span>.</li>
+                </ol>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 mb-4 mt-2">
                 <a
                   href="https://github.com/JackyJoh/Proj3Spotify"
                   target="_blank"
@@ -147,16 +183,8 @@ export default function MusicRecommendationEnginePage() {
                 >
                   Video Demo
                 </a>
-                <a
-                  href="https://example.com/live-demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-accent text-white font-mono text-sm font-bold shadow-md hover:bg-accent/90 hover:scale-105 transition-all group border-2 border-accent"
-                >
-                  Live Demo (Example)
-                </a>
               </div>
-              <p className="text-xs text-muted-foreground">Note: Replace the live demo link with your actual deployment if available.</p>
+              <p className="text-xs text-muted-foreground">Note: You do not need to use CLion specifically—any IDE or terminal will work. Replace the live demo link with your actual deployment if available.</p>
             </div>
           </section>
         </main>

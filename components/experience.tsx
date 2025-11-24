@@ -15,15 +15,7 @@ const experiences = [
     description: 'Real-time data logging program that wrote sensor (IMU) data to CSV \n Bit-packing system to format multiple sensor inputs into a 52-bit package for Raspberry Pi \n Detection software to identify launch/landing events and trigger payload deployment.',
     skills: ['C++', 'Embedded', 'Bit-Packing', 'CSV', 'Modular Design']
   },
-  {
-    title: 'Outside Services',
-    company: 'Bonita Bay Club',
-    location: 'Naples, FL',
-    date: 'Oct 2021 - Present',
-    description:
-      'Managed member services with focus on excellent customer service and attention to detail. Handled golf equipment and laundry tasks while maintaining club standards. Assisted in closing operations and facility maintenance.',
-    skills: ['Customer Service', 'Operations', 'Teamwork']
-  }
+  
 ]
 
 export default function Experience() {
