@@ -56,9 +56,7 @@ export default function MusicRecommendationEnginePage() {
             <p className="text-muted-foreground mb-3">
               <strong>Proj3Spotify</strong> is a full-stack music recommendation engine that finds the 7 most similar songs to a user-provided track, searching a dataset of over 114,000 Spotify songs. It features fast search and ranking using custom data structures and algorithms for both performance and accuracy.
             </p>
-            <p className="text-muted-foreground mb-6">
-              There are two main ways to search for recommendations in the app: by entering a song name or by selecting a random song. If you leave the input blank and click <strong>Update Song</strong>, the app defaults to "The Real Slim Shady". When you use <strong>Update Song</strong>, the app leverages a trie tree for fast prefix search to find the closest matching song title, then ranks the songs using a min-heap. If you use <strong>Random Song</strong>, the app picks a random track from the dataset and ranks the results using an ordered map. Both methods use the same similarity algorithm, comparing audio features like tempo, danceability, energy, and genre to find the best matches.
-            </p>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="bg-card/20 backdrop-blur-sm rounded-xl p-5 border border-border">
                 <h3 className="font-semibold text-accent mb-2 text-sm uppercase">Frontend</h3>
@@ -134,12 +132,14 @@ export default function MusicRecommendationEnginePage() {
           {/* How to Run / Live Demo Section */}
           <section className="mb-12">
             <h2 className="text-2xl font-semibold mb-4">How to Run / Live Demo</h2>
+            <p className="text-muted-foreground mb-6">
+              There are two main ways to search for recommendations in the app: by entering a song name or by selecting a random song. If you leave the input blank and click <strong>Update Song</strong>, the app defaults to "The Real Slim Shady". When you use <strong>Update Song</strong>, the app leverages a trie tree for fast prefix search to find the closest matching song title, then ranks the songs using a min-heap. If you use <strong>Random Song</strong>, the app picks a random track from the dataset and ranks the results using an ordered map. Both methods use the same similarity algorithm, comparing audio features like tempo, danceability, energy, and genre to find the best matches.
+            </p>
             <div className="bg-card/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-border">
               <p className="text-muted-foreground mb-2 font-semibold">After forking the repository and creating your project folder:</p>
               <div className="mb-6">
                 <h3 className="font-semibold text-accent mb-2 text-sm uppercase">CLion Users</h3>
                 <ol className="list-decimal pl-6 text-muted-foreground mb-4 space-y-2 text-sm">
-                  <li>Install CLion and MinGW-w64 (for g++), and add MinGW-w64's bin folder to your system PATH.</li>
                   <li>Open the project in CLion.</li>
                   <li>Build the project.</li>
                   <li>Edit the run configuration: In the "before launch" section, remove the build phase and add "Launch Web Browser" with the link set to <span className="font-mono text-xs">http://localhost:63342/Proj3Spotify/frontEnd/index.html</span>.</li>
