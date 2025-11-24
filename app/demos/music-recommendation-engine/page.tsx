@@ -135,9 +135,6 @@ export default function MusicRecommendationEnginePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-semibold mb-4">How to Run / Live Demo</h2>
             <div className="bg-card/20 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-border">
-              <p className="text-muted-foreground mb-6">
-                There are two main ways to search for recommendations in the app: by entering a song name or by selecting a random song. If you leave the input blank and click <strong>Update Song</strong>, the app defaults to "The Real Slim Shady". When you use <strong>Update Song</strong>, the app leverages a trie tree for fast prefix search to find the closest matching song title, then ranks the top 7 similar songs using a min-heap. If you use <strong>Random Song</strong>, the app picks a random track from the dataset and ranks the results using an ordered map. Both methods use the same basic similarity algorithm, comparing audio features like tempo, danceability, energy, and genre to find the best matches.
-              </p>
               <p className="text-muted-foreground mb-2 font-semibold">After forking the repository and creating your project folder:</p>
               <div className="mb-6">
                 <h3 className="font-semibold text-accent mb-2 text-sm uppercase">CLion Users</h3>
