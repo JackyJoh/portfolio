@@ -154,9 +154,9 @@ export default function MusicRecommendationEnginePage() {
                   <li>Install VS Code and the "Live Server" extension.</li>
                   <li>Open a Command Prompt in your project folder.</li>
                   <li>Compile the backend server:
-                    <pre className="bg-muted p-2 rounded text-xs mt-2 mb-2">g++ -o backend_server backend_server.cpp</pre>
+                    <pre className="bg-muted p-2 rounded text-xs mt-2 mb-2">g++ -o musicEngine main.cpp</pre>
                     Run the backend server:
-                    <pre className="bg-muted p-2 rounded text-xs mt-2 mb-2">backend_server.exe</pre>
+                    <pre className="bg-muted p-2 rounded text-xs mt-2 mb-2">musicEngine.exe</pre>
                   </li>
                   <li>Open <span className="font-mono text-xs">index.html</span> in VS Code.</li>
                   <li>Right-click <span className="font-mono text-xs">index.html</span> and select "Open with Live Server".</li>
