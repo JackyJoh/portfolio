@@ -29,7 +29,7 @@ export default function Hero() {
             onClick={() => {
               const el = document.getElementById('projects');
               if (el) {
-                const y = el.getBoundingClientRect().top + window.pageYOffset - 100;
+                const y = el.getBoundingClientRect().top + window.pageYOffset - 150;
                 window.scrollTo({ top: y, behavior: 'smooth' });
               }
             }}

@@ -27,17 +27,17 @@ export default function Home() {
       <Navigation />
       <main className="max-w-6xl mx-auto">
         <Hero />
-          <div id="projects" className="mb-16 scroll-mt-[100px]">
+          <div id="projects" className="mb-32 scroll-mt-[100px]">
             <Projects />
           </div>
-          <div id="experience" className="mb-16 scroll-mt-[100px]">
+          <div id="experience" className="mb-16 scroll-mt-[100px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 px-[5vw] md:px-[8vw] xl:px-[10vw]">
             <Experience />
           </div>
         <div className="mt-32" />
-        <div id="skills" className="mb-16 scroll-mt-[100px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 px-[5vw] md:px-[8vw] xl:px-[10vw]">
+        <div id="skills" className="mb-4 scroll-mt-[100px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 px-[5vw] md:px-[8vw] xl:px-[10vw]">
           <Skills />
         </div>
-        <div id="about">
+        <div id="about" className="mb-0 scroll-mt-[100px] w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-8 px-[5vw] md:px-[8vw] xl:px-[10vw]">
           <About />
         </div>
       </main>

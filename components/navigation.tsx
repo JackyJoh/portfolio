@@ -4,35 +4,56 @@ import { useState, useEffect } from 'react'
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('')
-  const sections = ['projects', 'skills', 'about']
+  const sections = ['projects', 'experience', 'skills', 'about']
 
   useEffect(() => {
+    const SCROLL_OFFSET = 120;
+    const EXPERIENCE_OFFSET = SCROLL_OFFSET + 150;
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections) {
-        const element = document.getElementById(section)
-        if (element) {
-          const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+      let newActiveSection = '';
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+        newActiveSection = sections[sections.length - 1];
+      } else {
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            const offset = section === 'experience' ? EXPERIENCE_OFFSET : SCROLL_OFFSET;
+            if (rect.top <= offset) {
+              newActiveSection = section;
+              break;
+            }
           }
         }
       }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      if (newActiveSection === '' && window.scrollY < SCROLL_OFFSET) {
+        newActiveSection = sections[0];
+      }
+      if (newActiveSection !== activeSection) {
+        setActiveSection(newActiveSection);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeSection]);
 
   const handleNavClick = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const sectionOffsets: Record<string, number> = {
+      about: 0.1,
+      experience: 140,
+      projects: 150,
+      skills: 10, // scroll skills lower
+    };
+    const element = document.getElementById(sectionId);
     if (element) {
-      const y = element.getBoundingClientRect().top + window.pageYOffset - 100;
+      const offset = sectionOffsets[sectionId] || 100;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: y, behavior: 'smooth' });
+      setActiveSection(sectionId);
     }
-  }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-sm">
